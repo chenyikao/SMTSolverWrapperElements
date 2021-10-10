@@ -1,0 +1,59 @@
+/**
+ * Example:
+ * Craig interpolation problem in OmpCA
+ */
+
+\functions {
+	int tM, chunk, rx, tx, ix, jx, ry, ty, iy, k, size;
+
+}
+
+\problem {
+  /* Problem to be proven and interpolated */
+
+  \part[f]         (
+	tM = chunk &
+	size <= chunk &
+	tM > 1
+)
+/*	?? is removed since ?? appears in UP already	*/
+	
+	&
+
+  \part[Inv]          (
+    ((k+1)+(rx*tM+tx)*chunk <= ix) &
+    (ix < (k+1)+(rx*tM+tx+1)*chunk) &
+
+    ((k+1)+(ry*tM+ty)*chunk <= iy) &
+    (iy < (k+1)+(ry*tM+ty+1)*chunk) &
+
+    (tx != ty) &
+    (0 <= tx) & (tx < tM) &
+    (0 <= ty) & (ty < tM) &
+    (0 < chunk) &
+    (0 <= rx) &
+    (0 <= ry) &
+
+    (k + 1 <= ix) &
+    (ix < size) &
+
+    (k + 1 <= jx) &
+    (jx < size) &
+    (k = 1) &
+
+    (k + 1 < iy) &
+    (iy < size - 1) &
+    ix = iy - 1
+	)
+/**	&
+  \part[np]         (
+	true
+	)
+
+*/
+                       ->
+  false
+}
+
+/* Interpolation specification */
+\interpolant {f; Inv}

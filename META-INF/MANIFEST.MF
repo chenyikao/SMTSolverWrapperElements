@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OMPCA SMT Solver Elements
+Bundle-SymbolicName: ompca
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Export-Package: ompca;uses:="ompca.condition",
+ ompca.condition
+Require-Bundle: org.eclipse.cdt.core,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.draw2d,
+ org.eclipse.emf.common.ui,
+ org.eclipse.jface.text
+Automatic-Module-Name: OMPCA_SMT_Solver_Elements
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-13
